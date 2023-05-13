@@ -1,8 +1,11 @@
 // ----------------------REACT HOOKS
 
-import React  from "react";
+import React, { useEffect }  from "react";
 import {useContext} from 'react';
 import { Context} from "./index";
+
+// useref use to select our own element
+import { useRef } from "react";
 
 
 // APP->  HOME  ->  ROW  ->  CARD
@@ -11,10 +14,15 @@ import { Context} from "./index";
 const Row   = () => {
 
     const data = useContext(Context);
-    console.log(data);
+
+    const customElement = useRef(null);
+    useEffect(()=>{
+        console.log(customElement.current);
+        // it console <div> Gaurav as Data</div>
+    },[])
 
     return(
-        <div> {data} </div>
+        <div ref={customElement}>{data}</div>
     )
 }
 
