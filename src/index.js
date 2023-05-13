@@ -1,12 +1,20 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import App from './App';
+import {createContext} from "react";
+
+// creating context in index.js rather than app.js for clean ui
+const Context = createContext();
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <App />
+    
+    <Context.Provider value={"Gaurav as Data"}>
+      <App />
+    </Context.Provider>
+  
   </React.StrictMode> 
-  // after removing showing effect the useeffect run only 1 time instead of 2times
-  //  this strict mode is to boost performance
 );
+
+export {Context};

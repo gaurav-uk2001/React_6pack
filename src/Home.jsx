@@ -1,22 +1,27 @@
 // ----------------------REACT HOOKS
 
 import React  from "react";
+import {useContext} from 'react';
+import { Context} from "./index";
 
 
 // APP->  HOME  ->  ROW  ->  CARD
-// we have send data from APP then to HOME then to ROW
-// without use of Usecontext
+//Now directly using data from onesource with help of useContext
 
-const Row=({data})=>{
+const Row   = () => {
+
+    const data = useContext(Context);
+    console.log(data);
+
     return(
-        <div>{data}</div>
+        <div> {data} </div>
     )
 }
 
-const Home = ({data}) =>{
+const Home = () =>{
     return(
         <div>
-           <Row data={data}/>
+           <Row/>
         </div>
     )
 }
