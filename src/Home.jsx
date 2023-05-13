@@ -10,6 +10,12 @@ const Home = () =>{
     // run when it is mount and when it is update
     useEffect(()=>{
         console.log("showing effect");
+
+        return ()=>{
+            console.log("cleaning up");
+            // this return call when the function unmount
+            // like case when we want to delete eventlistner after it finishes
+        }
     },[a])
     // dependency array [a]: mean it run when a or other variable b,c,d(if mentioned) call
 
