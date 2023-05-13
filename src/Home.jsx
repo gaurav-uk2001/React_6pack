@@ -1,29 +1,22 @@
 // ----------------------REACT HOOKS
 
-import React , {useEffect, useState} from "react";
+import React  from "react";
 
-const Home = () =>{
 
-    const [a,setA] = useState(0);
+// APP->  HOME  ->  ROW  ->  CARD
+// we have send data from APP then to HOME then to ROW
+// without use of Usecontext
 
-    // call back function
-    // run when it is mount and when it is update
-    useEffect(()=>{
-        console.log("showing effect");
+const Row=({data})=>{
+    return(
+        <div>{data}</div>
+    )
+}
 
-        return ()=>{
-            console.log("cleaning up");
-            // this return call when the function unmount
-            // like case when we want to delete eventlistner after it finishes
-        }
-    },[a])
-    // dependency array [a]: mean it run when a or other variable b,c,d(if mentioned) call
-
+const Home = ({data}) =>{
     return(
         <div>
-            <button onClick={()=>setA(a+1)}>Add</button>
-            <p>{a}</p>
-            <button onClick={()=>setA(a-1)}>Minus</button>
+           <Row data={data}/>
         </div>
     )
 }
